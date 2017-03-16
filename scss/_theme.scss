@@ -1,0 +1,72 @@
+body, section, div {
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: #091324;
+	div.inner-wrapper {
+		width: 100%;
+		max-width: $width-full;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	> section#page {
+		height: 100%;
+		> header {
+			height: 100%;
+			> div.inner-wrapper {
+				height: 100%;
+				> a {
+					display: flex;
+					height: 100%;
+					align-items: center;
+					flex-wrap: nowrap;
+					> div#head_animation {
+						display: flex;
+						margin: auto;
+						padding: 0px;
+						width: $width-full;
+                        max-width: none;
+						height: 400px;
+						flex-wrap:wrap;
+    					justify-content:space-between;
+						position: relative;
+						>span {
+							display: block;
+							background-image: url(/img/head.jpg);
+							width: $width-full / 10;
+							height: 80px;
+						}
+						> img {
+							visibility: hidden;
+							position: absolute;
+							line-height: 0px;
+							margin: 0px;
+						}
+					}
+					
+					> div#head_animation.stopped {
+						>img {
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+		>div#contents {
+			> div {
+				
+			}
+		}
+	}
+}
