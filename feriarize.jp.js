@@ -6,6 +6,21 @@ var jp;
         (function (ts) {
             class HeadAnimation {
                 constructor() {
+                    this.onResize = (ev = null) => {
+                        var style = window.getComputedStyle(this.animationContent);
+                        var w = parseInt(style.width);
+                        var winW = window.innerWidth;
+                        if (winW < w) {
+                            /* ユークリッドの互除法 */
+                            var r = w % winW;
+                            while (r != 0) {
+                                w = winW;
+                                winW = r;
+                                r = w % winW;
+                            }
+                            var scale = parseInt(style.width) / winW;
+                        }
+                    };
                     this.onAction = (index, option) => {
                         var len = this.targets.length;
                         var exit = true;
@@ -24,15 +39,18 @@ var jp;
                             return index;
                         var content = document.getElementById('head_animation');
                         content.classList.add('stopped');
+                        /*
                         for (var i = 0; i < len; i++) {
                             var targetElement = this.targets[i].element;
                             content.removeChild(targetElement);
                         }
                         this.targets = [];
+                        */
                         index = 0;
                         return index;
                     };
                     var content = document.getElementById('head_animation');
+                    this.animationContent = content;
                     var pRect = content.getBoundingClientRect();
                     var spanList = [];
                     this.targets = [];
@@ -45,27 +63,32 @@ var jp;
                         target.perspective = 1000;
                         this.targets.push(target);
                         var actObj = ns.act.ActionTween.Act(target, ns.MathBit.randomInt(6, 10) * 0.1, ns.act.ActionMethod.snap);
-                        actObj.x = 1000 * ns.MathBit.randomInt(-10, 10) * 0.1 - target.getW() * 0.5;
-                        actObj.y = 500 * ns.MathBit.randomInt(-10, 10) * 0.1 - target.getH() * 0.5;
-                        actObj.z = 500 * ns.MathBit.randomInt(-10, 10) * 0.1 - target.getH() * 0.5;
+                        actObj.x.value = 1000 * ns.MathBit.randomInt(-10, 10) * 0.1 - target.getW() * 0.5;
+                        actObj.y.value = 500 * ns.MathBit.randomInt(-10, 10) * 0.1 - target.getH() * 0.5;
+                        actObj.z.value = 500 * ns.MathBit.randomInt(-10, 10) * 0.1 - target.getH() * 0.5;
                         //actObj.a = ns.MathBit.randomInt(1, 100) * 0.1;
-                        actObj.w = target.getW() * ns.MathBit.randomInt(0, 20) * 0.1;
-                        actObj.h = actObj.w;
-                        actObj.rx = 360 * ns.MathBit.randomInt(-10, 10) * 0.1 * 100 / window.innerWidth * 10;
-                        actObj.ry = 360 * ns.MathBit.randomInt(-10, 10) * 0.1 * 100 / window.innerHeight * 10;
-                        actObj.rz = 360 * ns.MathBit.randomInt(-10, 10) * 0.1 * 100 / 1000 * 10;
+                        actObj.w.value = target.getW() * ns.MathBit.randomInt(0, 20) * 0.1;
+                        actObj.h.value = actObj.w.value;
+                        actObj.rx.value = 360 * ns.MathBit.randomInt(-10, 10) * 0.1 * 100 / window.innerWidth * 10;
+                        actObj.ry.value = 360 * ns.MathBit.randomInt(-10, 10) * 0.1 * 100 / window.innerHeight * 10;
+                        actObj.rz.value = 360 * ns.MathBit.randomInt(-10, 10) * 0.1 * 100 / 1000 * 10;
                         actObj = ns.act.ActionTween.Act(target, ns.MathBit.randomInt(8, 10) * 0.01, ns.act.ActionMethod.adsorb);
-                        actObj.a = ns.MathBit.randomInt(1, 10) * 0.1;
-                        actObj = ns.act.ActionTween.Act(target, ns.MathBit.randomInt(8, 10) * 0.01, ns.act.ActionMethod.adsorb);
-                        actObj.x = 0;
-                        actObj.y = 0;
-                        actObj.z = 0;
-                        actObj.w = target.getW();
-                        actObj.h = target.getH();
-                        actObj.ry = 3600;
-                        actObj.rx = 3600;
-                        actObj.rz = 3600;
-                        actObj.a = 1;
+                        actObj.x.value = 0;
+                        actObj.y.value = 0;
+                        actObj.z.value = 0;
+                        actObj.w.value = target.getW();
+                        actObj.h.value = target.getH();
+                        actObj.ry.value = 360;
+                        actObj.rx.value = 360;
+                        actObj.rz.value = 360;
+                        actObj.a.value = 1;
+                        actObj.rx.max = 90;
+                        actObj.ry.max = 90;
+                        actObj.rz.max = 90;
+                        actObj.x.min = 1;
+                        actObj.y.min = 1;
+                        actObj.z.min = 1;
+                        actObj.a.min = 0.1;
                     }
                     for (var i = 0; i < 50; i++) {
                         var element = spanList[i];
@@ -74,6 +97,8 @@ var jp;
                     }
                     this.action = new ns.ActionObj(this.onAction);
                     this.action.setTickIndex(1);
+                    this.onResize();
+                    window.addEventListener("resize", this.onResize);
                 }
             }
             ts.HeadAnimation = HeadAnimation;

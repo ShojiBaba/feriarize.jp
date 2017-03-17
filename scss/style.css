@@ -1,65 +1,93 @@
-/* line 1, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
+@charset "UTF-8";
+/* line 1, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
 body, section, div {
   margin: 0px;
   padding: 0px; }
 
-/* line 6, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
+/* line 6, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
 html {
-  height: 100%;
-  overflow: hidden; }
+  color: #374857;
+  font-family: 'Open Sans', sans-serif, "Yu Gothic", "メイリオ";
+  font-feature-settings: "palt";
+  height: 100%; }
 
-/* line 11, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
+/* line 13, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
 body {
+  height: 2046px;
   height: 100%;
   margin: 0px;
   padding: 0px;
-  background-color: #091324; }
-  /* line 16, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
+  background-color: #f5f9ff;
+  overflow: hidden; }
+  /* line 20, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
   body div.inner-wrapper {
     width: 100%;
     max-width: 1180px;
     margin-left: auto;
     margin-right: auto; }
-  /* line 23, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
+  /* line 27, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
   body > section#page {
     height: 100%; }
-    /* line 25, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
+    /* line 29, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
     body > section#page > header {
-      height: 100%; }
-      /* line 27, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
+      height: 700px;
+      z-index: 1; }
+      /* line 32, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
       body > section#page > header > div.inner-wrapper {
-        height: 100%; }
-        /* line 29, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
-        body > section#page > header > div.inner-wrapper > a {
+        display: flex;
+        align-items: center center;
+        flex-wrap: nowrap;
+        flex-direction: column; }
+        /* line 37, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+        body > section#page > header > div.inner-wrapper > h1 {
+          display: block;
+          margin: 20px 0px;
+          text-shadow: 3px 3px 2px rgba(45, 68, 113, 0.2); }
+        /* line 42, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+        body > section#page > header > div.inner-wrapper > div#head_animation {
+          margin: 0px;
           display: flex;
-          height: 100%;
-          align-items: center;
-          flex-wrap: nowrap; }
-          /* line 34, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
-          body > section#page > header > div.inner-wrapper > a > div#head_animation {
-            display: flex;
-            margin: auto;
-            padding: 0px;
-            width: 1180px;
-            max-width: none;
-            height: 400px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            position: relative; }
-            /* line 44, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
-            body > section#page > header > div.inner-wrapper > a > div#head_animation > span {
-              display: block;
-              background-image: url(/img/head.jpg);
-              width: 118px;
-              height: 80px; }
-            /* line 50, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
-            body > section#page > header > div.inner-wrapper > a > div#head_animation > img {
-              visibility: hidden;
-              position: absolute;
-              line-height: 0px;
-              margin: 0px; }
-          /* line 59, D:/ferior/Workspace/feriarize.jp/scss/_theme.scss */
-          body > section#page > header > div.inner-wrapper > a > div#head_animation.stopped > img {
-            visibility: visible; }
+          margin: 80px auto;
+          padding: 0px;
+          width: 1000px;
+          max-width: none;
+          height: 400px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          position: relative; }
+          /* line 53, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+          body > section#page > header > div.inner-wrapper > div#head_animation > span {
+            display: block;
+            background-image: url(/img/head.jpg);
+            width: 10%;
+            height: 20%; }
+          /* line 59, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+          body > section#page > header > div.inner-wrapper > div#head_animation > img {
+            visibility: hidden;
+            position: absolute;
+            line-height: 0px;
+            margin: 0px; }
+        /* line 68, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+        body > section#page > header > div.inner-wrapper > div#head_animation.stopped > img {
+          visibility: visible; }
+    /* line 74, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+    body > section#page > div#contents {
+      z-index: 1; }
+    /* line 81, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+    body > section#page > footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      z-index: -1;
+      background-image: linear-gradient(to top, #cccccc, rgba(255, 255, 255, 0)); }
+      /* line 87, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+      body > section#page > footer > div {
+        height: 100px;
+        max-width: 1180px;
+        margin: auto; }
+        /* line 91, D:/baba/Workspace/xampp/htdocs/wwwroot/feriarize.jp/scss/_theme.scss */
+        body > section#page > footer > div > p {
+          text-align: center;
+          line-height: 90px; }
 
 /*# sourceMappingURL=style.css.map */

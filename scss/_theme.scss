@@ -4,15 +4,19 @@ body, section, div {
 }
 
 html {
+	color: $font-color;
+	font-family: 'Open Sans', sans-serif, "Yu Gothic", "メイリオ";
+	font-feature-settings : "palt";
 	height: 100%;
-	overflow: hidden;
 }
 
 body {
+	height: 2046px;
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
-	background-color: #091324;
+	background-color: $background-color;
+	overflow: hidden;
 	div.inner-wrapper {
 		width: 100%;
 		max-width: $width-full;
@@ -23,49 +27,71 @@ body {
 	> section#page {
 		height: 100%;
 		> header {
-			height: 100%;
+			height: 700px;
+			z-index: 1;
 			> div.inner-wrapper {
-				height: 100%;
-				> a {
+				display: flex;
+				align-items: center center;
+				flex-wrap: nowrap;
+				flex-direction: column;
+				>h1 {
+					display: block;
+					margin: 20px 0px;
+					text-shadow: 3px 3px 2px rgba(45, 68, 113, 0.2);
+				}
+				> div#head_animation {
+					margin: 0px;
 					display: flex;
-					height: 100%;
-					align-items: center;
-					flex-wrap: nowrap;
-					> div#head_animation {
-						display: flex;
-						margin: auto;
-						padding: 0px;
-						width: $width-full;
-                        max-width: none;
-						height: 400px;
-						flex-wrap:wrap;
-    					justify-content:space-between;
-						position: relative;
-						>span {
-							display: block;
-							background-image: url(/img/head.jpg);
-							width: $width-full / 10;
-							height: 80px;
-						}
-						> img {
-							visibility: hidden;
-							position: absolute;
-							line-height: 0px;
-							margin: 0px;
-						}
+					margin: 80px auto;
+					padding: 0px;
+					width: 1000px;
+					max-width: none;
+					height: 400px;
+					flex-wrap:wrap;
+					justify-content:space-between;
+					position: relative;
+					>span {
+						display: block;
+						background-image: url(/img/head.jpg);
+						width: 10%;
+						height: 20%;
 					}
-					
-					> div#head_animation.stopped {
-						>img {
-							visibility: visible;
-						}
+					> img {
+						visibility: hidden;
+						position: absolute;
+						line-height: 0px;
+						margin: 0px;
+					}
+				}
+
+				> div#head_animation.stopped {
+					>img {
+						visibility: visible;
 					}
 				}
 			}
 		}
 		>div#contents {
+			z-index: 1;
 			> div {
 				
+			}
+		}
+		
+		> footer {
+			position: absolute;
+			width: 100%;
+			bottom: 0px;
+			z-index: -1;
+			background-image: linear-gradient(to top, #cccccc, rgba(255,255,255,0));
+			> div {
+				height: 100px;
+				max-width: $width-full;
+				margin: auto;
+				>p {
+					text-align: center;
+					line-height: 90px;
+				}
 			}
 		}
 	}
